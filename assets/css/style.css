@@ -1,0 +1,418 @@
+/* GENERIC */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: blanchedalmond;
+}
+
+/* HEADER */
+
+header {
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    padding: 25px;
+    background-color: rgb(184, 233, 184);
+}
+
+/* MAIN */
+
+main {
+    margin: 0;
+    padding: 25px 0;
+    text-align: center;
+}
+
+.btnNewPhone {
+    width: 150px;
+    height: 75px;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 1.3em;
+    border: 3px solid rgba(0,0,0,0.1);
+    border-radius: 15px;
+    transition: background-color 0.2s ease;
+}
+
+.btnNewPhone:hover {
+    background-color: coral;
+    color: white;
+    border: 3px solid rgba(255,255,255,0.2);
+}
+
+/* CARDS */
+
+.cardsContainer {
+    margin: 25px auto 0 auto;
+    max-width: 1200px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.cardContainer {
+    flex-basis: 75%;
+    margin: 0 0 25px 0;
+    padding: 0 0 10px 0;
+    overflow: hidden;
+    border: 5px solid rgb(238, 206, 165);
+    border-radius: 9px;
+    background-color: rgb(238, 206, 165);
+    transition: transform 0.1s ease-in-out;
+}
+
+.cardContainer:hover {
+    background-color: rgb(241, 180, 94);
+    border: 5px solid rgb(241, 180, 94);
+    transform: scale(1.05);
+}
+
+.cardContainer img {
+    height: 300px;
+    width: 100%;
+}
+
+.phoneName {
+    font-size: 1.3em;
+    font-weight: 500;
+    color: rgb(44, 44, 44);
+    margin: 25px 0;
+}
+
+.btnDetail {
+    width: 75px;
+    height: 37.5px;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 1em;
+    border: 3px solid rgba(0,0,0,0.1);
+    border-radius: 9px;
+    transition: background-color 0.2s ease;
+}
+
+.btnDetail:hover {
+    background-color: rgb(80, 176, 255);
+    color: white;
+    border: 3px solid rgba(255,255,255,0.2);
+}
+
+.btnEdit {
+    width: 75px;
+    height: 37.5px;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 1em;
+    border: 3px solid rgba(0,0,0,0.1);
+    border-radius: 9px;
+    transition: background-color 0.2s ease;
+}
+
+.btnEdit:hover {
+    background-color: rgb(202, 64, 14);
+    color: white;
+    border: 3px solid rgba(255,255,255,0.2);
+}
+
+/* NEW PHONE PAGE */
+
+#newPhonePage {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease-in-out;
+    width: 85%;
+    max-width: 700px;
+    position: fixed;
+    top: 33%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px 0 25px 0;
+    border: 1px solid rgb(160, 160, 160);
+    border-radius: 5px;
+    background-color: white;
+}
+
+#newPhonePage.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+#closeIconDiv {
+    width: 95%;
+    text-align: right;
+}
+
+.closeIcon {
+    fill: brown;
+    transition: transform 0.1s ease-in-out;
+}
+
+.closeIcon:hover {
+    cursor: pointer;
+    transform: scale(1.15);
+}
+
+#newPhoneForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#newPhoneForm i {
+    font-size: 1.5em;
+    font-weight: 500;
+    color: brown;
+    cursor: pointer;
+}
+
+#newPhoneForm input {
+    width: 80%;
+    max-width: 600px;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid rgb(160, 160, 160);
+}
+
+#btnsForm {
+    width: 300px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#btnReset {
+    width: 75px;
+    height: 37.5px;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 1em;
+    border: 3px solid rgba(0,0,0,0.1);
+    border-radius: 9px;
+    transition: background-color 0.2s ease;
+}
+ 
+#btnReset:hover {
+    background-color: brown;
+    color: white;
+    border: 3px solid rgba(255,255,255,0.2);
+}
+
+#btnCreate {
+    width: 75px;
+    height: 37.5px;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 1em;
+    border: 3px solid rgba(0,0,0,0.1);
+    border-radius: 9px;
+    transition: background-color 0.2s ease;
+}
+
+#btnCreate:hover {
+    background-color: rgb(26, 190, 48);
+    color: white;
+    border: 3px solid rgba(255,255,255,0.2);
+}
+
+/* POP UP RESET CONFIRM */
+
+.resetConfirmPopUp {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease-in-out;
+    background-color: rgb(240, 204, 154);
+    border: 5px solid rgba(0,0,0,0.1);
+    max-width: 250px;
+    border-radius: 5px;
+    height: 125px;
+    text-align: center;
+    position: fixed;
+    top: 9%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.resetConfirmPopUp.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.resetConfirmPopUp p {
+    color: rgb(27, 27, 27);
+    font-size: 1.3em;
+    font-weight: 500;
+    margin: 0;
+    padding: 15px 0;
+}
+
+.resetConfirmYesNo {
+    width: 50%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.btnResetYes {
+    width: 60px;
+    height: 37.5px;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 1em;
+    border: 3px solid rgba(0,0,0,0.1);
+    border-radius: 9px;
+    transition: background-color 0.2s ease;
+}
+
+.btnResetYes:hover {
+    background-color: rgb(26, 190, 48);
+    color: white;
+    border: 3px solid rgba(255,255,255,0.2);
+}
+
+.btnResetNo {
+    width: 60px;
+    height: 37.5px;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 1em;
+    border: 3px solid rgba(0,0,0,0.1);
+    border-radius: 9px;
+    transition: background-color 0.2s ease;
+}
+
+.btnResetNo:hover {
+    background-color: brown;
+    color: white;
+    border: 3px solid rgba(255,255,255,0.2);
+}
+
+/* DETAILS PAGE */
+
+.detailsPage {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease-in-out;
+    width: 80%;
+    max-width: 900px;
+    position: fixed;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+.detailsPage.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.detailsPageImg img {
+    width: 100%;
+    max-width: 450px;
+    max-height: 400px;
+}
+
+.detailsPageText p {
+    padding: 15px 0 15px 10px;
+    margin: 0;
+    border-bottom: 1px solid rgb(235, 218, 196);
+}
+
+.detailsPageText {
+    width: 100%;
+    background-color: rgb(241, 235, 227);
+    border-radius: 9px;
+    overflow:auto;
+}
+
+#closeIconDetailsDiv {
+    width: 99%;
+    text-align: right;
+}
+
+.closeIconDetails {
+    fill: brown;
+    transition: transform 0.1s ease-in-out;
+}
+
+.closeIconDetails:hover {
+    cursor: pointer;
+    transform: scale(1.15);
+}
+
+.btnEditDetailsDiv {
+    text-align: center;
+    margin: 15px 0 0 0;
+}
+
+.btnEditDetails {
+    width: 150px;
+    height: 37.5px;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 1em;
+    border: 3px solid rgba(0,0,0,0.1);
+    border-radius: 9px;
+    transition: background-color 0.2s ease;
+}
+
+.btnEditDetails:hover {
+    background-color: rgb(202, 64, 14);
+    color: white;
+    border: 3px solid rgba(255,255,255,0.2);
+}
+
+/* MEDIA QUERIES */
+
+@media screen and (min-width:500px) {
+    .cardContainer {
+        flex-basis: 42%;
+    }
+}
+
+@media screen and (min-width:420px) {
+    .detailsPage {
+        top: 45%;
+    }
+}
+
+@media screen and (min-width:550px) {
+    .detailsPage {
+        top: 36%;
+    }
+    .detailsPageText {
+        width: 70%;
+    }
+    .detailsPageImgText {
+        display: flex;
+    }
+}
+
+@media screen and (min-width:768px) {
+    .cardContainer {
+        flex-basis: 30%;
+    }
+}
+
+@media screen and (min-width:1024px) {
+    .detailsPage {
+        top: 45%;
+    }
+    .cardContainer {
+        flex-basis: 21%;
+    }
+}
