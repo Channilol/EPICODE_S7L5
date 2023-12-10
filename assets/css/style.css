@@ -145,7 +145,7 @@ main {
 }
 
 #closeIconDiv {
-    width: 95%;
+    width: 8%;
     text-align: right;
 }
 
@@ -248,7 +248,7 @@ main {
 
 .resetConfirmPopUp p {
     color: rgb(27, 27, 27);
-    font-size: 1.3em;
+    font-size: 1.1em;
     font-weight: 500;
     margin: 0;
     padding: 15px 0;
@@ -339,7 +339,7 @@ main {
 }
 
 #closeIconDetailsDiv {
-    width: 99%;
+    width: 10%;
     text-align: right;
 }
 
@@ -372,6 +372,201 @@ main {
 
 .btnEditDetails:hover {
     background-color: rgb(202, 64, 14);
+    color: white;
+    border: 3px solid rgba(255,255,255,0.2);
+}
+
+/* EDIT PAGE */
+
+.editPage {
+    opacity: 0;
+    visibility: hidden; 
+    transition: opacity 0.2s ease-in-out;
+    width: 80%;
+    max-width: 900px;
+    position: fixed;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 1px solid rgb(160, 160, 160);
+    border-radius: 15px;
+    padding: 10px;
+}
+
+.editPage.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.topEditDiv {
+    display: flex;
+    width: 100%;
+}
+
+.pageTitle {
+    width: 90%;
+    text-align: center;
+}
+
+.pageTitle h1 {
+    margin: 0 0 0 10%;
+}
+
+.closeIconEditDiv {
+    width: 10%;
+    text-align: right;
+}
+
+.closeIconEdit {
+    fill: brown;
+    transition: transform 0.1s ease-in-out;
+}
+
+.closeIconEdit:hover {
+    cursor: pointer;
+    transform: scale(1.15);
+}
+
+.editForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.editForm input {
+    width: 80%;
+    max-width: 600px;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid rgb(160, 160, 160);
+}
+
+.btnResetEditPage {
+    width: 75px;
+    height: 37.5px;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 1em;
+    border: 3px solid rgba(0,0,0,0.1);
+    border-radius: 9px;
+    transition: background-color 0.2s ease;
+}
+
+.btnResetEditPage:hover {
+    background-color: rgb(197, 128, 38);
+    color: white;
+    border: 3px solid rgba(255,255,255,0.2);
+}
+
+.btnDelete {
+    width: 75px;
+    height: 37.5px;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 1em;
+    border: 3px solid rgba(0,0,0,0.1);
+    border-radius: 9px;
+    transition: background-color 0.2s ease;
+}
+
+.btnDelete:hover {
+    background-color: brown;
+    color: white;
+    border: 3px solid rgba(255,255,255,0.2);
+}
+
+.btnEditPage {
+    width: 100px;
+    height: 37.5px;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 1em;
+    border: 3px solid rgba(0,0,0,0.1);
+    border-radius: 9px;
+    transition: background-color 0.2s ease;
+}
+
+.btnEditPage:hover {
+    background-color: rgb(53, 170, 69);
+    color: white;
+    border: 3px solid rgba(255,255,255,0.2);
+}
+
+/* POP UP RESET CONFIRM EDIT PAGE */
+
+.resetPopUpEditPage {
+    opacity: 0;
+    visibility: hidden; 
+    transition: opacity 0.2s ease-in-out;
+    background-color: rgb(240, 204, 154);
+    border: 5px solid rgba(0,0,0,0.1);
+    max-width: 250px;
+    border-radius: 5px;
+    height: 125px;
+    text-align: center;
+    position: fixed;
+    top: 9%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.resetPopUpEditPage.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.resetPopUpEditPage p {
+    color: rgb(27, 27, 27);
+    font-size: 1.1em;
+    font-weight: 500;
+    margin: 0;
+    padding: 15px 0;
+}
+
+.resetYesNoEditPage {
+    width: 50%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.btnResetYesEdit {
+    width: 60px;
+    height: 37.5px;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 1em;
+    border: 3px solid rgba(0,0,0,0.1);
+    border-radius: 9px;
+    transition: background-color 0.2s ease;
+}
+
+.btnResetYesEdit:hover {
+    background-color: rgb(26, 190, 48);
+    color: white;
+    border: 3px solid rgba(255,255,255,0.2);
+}
+
+.btnResetNoEdit {
+    width: 60px;
+    height: 37.5px;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 1em;
+    border: 3px solid rgba(0,0,0,0.1);
+    border-radius: 9px;
+    transition: background-color 0.2s ease;
+}
+
+.btnResetNoEdit:hover {
+    background-color: brown;
     color: white;
     border: 3px solid rgba(255,255,255,0.2);
 }

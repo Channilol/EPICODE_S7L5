@@ -2,8 +2,6 @@
 // eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTc0N2Y3MzJjNmEwZDAwMTg0OTVmNjYiLCJpYXQiOjE3MDIxMzM2MTksImV4cCI6MTcwMzM0MzIxOX0.bFdf47Fao8BOHrkkkHyzXutHMc5CSgfH1p2abmSrbGk
 
 const urlApi = "https://striveschool-api.herokuapp.com/api/product/"
-const phoneId = "6574f31d2c6a0d00184961d1"
-const urlWithPhoneId = `https://striveschool-api.herokuapp.com/api/product/${phoneId}`
 
 const options = {
     headers: {
@@ -12,11 +10,6 @@ const options = {
         },
 }
 
-// fetchPhone(urlApi, postPhone('samsung galaxy s21', 'telefono molto grande', 'samsung', 'https://m.media-amazon.com/images/I/614r6gJOBeL.jpg', 499))
-// fetchPhone(urlWithPhoneId, putPhone('iphone', 'meh', 'apple', '#', 9999))
-// fetchPhone(urlWithPhoneId, deletePhone())
-
-fetchPhone(urlWithPhoneId, deletePhone())
 showPhoneCards(urlApi, options)
 fetchShowPhonesArray(urlApi, options)
 
@@ -29,12 +22,6 @@ async function fetchShowPhonesArray(url, option) {
 async function fetchPhone(url, option) {
     const response = await fetch(url, option)
     const data = await response.json()
-}
-
-async function fetchPhoneDetails(url, option) {
-    const response = await fetch(url, option)
-    const data = await response.json()
-    return data
 }
 
 function createPhone(name, description, brand, imageUrl, price) {
@@ -79,7 +66,7 @@ function deletePhone() {
     }
 }
 
-// FORM PAGE
+// POPUP PAGE
 
 const newPhonePage = document.querySelector('#newPhonePage')
 const btnNewPhone = document.querySelector('.btnNewPhone')
@@ -104,9 +91,26 @@ const detailsPagePhoneDesc = document.querySelector('.detailsPagePhoneDesc')
 const detailsPagePhoneBrand = document.querySelector('.detailsPagePhoneBrand')
 const detailsPagePhoneImgUrl = document.querySelector('.detailsPagePhoneImgUrl')
 const detailsPagePhonePrice = document.querySelector('.detailsPagePhonePrice')
+const btnEditDetails = document.querySelector('.btnEditDetails')
+
+const editPage = document.querySelector('.editPage')
+const closeIconEdit = document.querySelector('.closeIconEdit')
+const phoneNameEdit = document.querySelector('#phoneNameEdit')
+const phoneDescEdit = document.querySelector('#phoneDescEdit')
+const phoneBrandEdit = document.querySelector('#phoneBrandEdit')
+const phoneImgUrlEdit = document.querySelector('#phoneImgUrlEdit')
+const phonePriceEdit = document.querySelector('#phonePriceEdit')
+const btnResetEditPage = document.querySelector('.btnResetEditPage')
+const btnDelete = document.querySelector('.btnDelete')
+const btnEditPage = document.querySelector('.btnEditPage')
+const resetPopUpEditPage = document.querySelector('.resetPopUpEditPage')
+const btnResetYesEdit = document.querySelector('.btnResetYesEdit')
+const btnResetNoEdit = document.querySelector('.btnResetNoEdit')
 
 btnNewPhone.addEventListener('click', () => {
     newPhonePage.classList.add('show')
+    detailsPage.classList.remove('show');
+    editPage.classList.remove('show');
     phoneName.value = ''
     phoneDesc.value = ''
     phoneBrand.value = ''
@@ -160,6 +164,8 @@ btnCreate.addEventListener('click', (event) => {
     }
 })
 
+let objectId = ''
+
 async function showPhoneCards(url, option) {
     const response = await fetch(url, option)
     const data = await response.json()
@@ -180,9 +186,93 @@ async function showPhoneCards(url, option) {
             detailsPagePhoneBrand.textContent = 'Brand: ' + data[i].brand
             detailsPagePhoneImgUrl.textContent = 'Image url: ' + data[i].imageUrl
             detailsPagePhonePrice.textContent = 'Price: ' + data[i].price + '€'
+            objectId = urlApi + data[i]._id
             detailsPage.classList.add('show');
+            newPhonePage.classList.remove('show');
+            editPage.classList.remove('show');
+            fetchDetails(objectId, options)
+        })
+    } 
+
+    const btnsEditArray = document.querySelectorAll('.btnEdit')
+
+    for (let i = 0; i < btnsEditArray.length; i++) {
+        btnsEditArray[i].addEventListener('click', () => {
+            phoneNameEdit.value = data[i].name
+            phoneDescEdit.value = data[i].description
+            phoneBrandEdit.value = data[i].brand
+            phoneImgUrlEdit.value = data[i].imageUrl
+            phonePriceEdit.value = data[i].price
+            editPage.classList.add('show');
+            newPhonePage.classList.remove('show');
+            detailsPage.classList.remove('show');
+
+            objectId = urlApi + data[i]._id
         })
     }
+
+    btnEditPage.addEventListener('click', async (event) => {
+        event.preventDefault()
+        try {
+            await fetchPhone(objectId, putPhone(phoneNameEdit.value, phoneDescEdit.value, phoneBrandEdit.value, phoneImgUrlEdit.value, phonePriceEdit.value));
+            editPage.classList.remove('show');
+            window.location.reload();
+        } catch (error) {
+            console.log('Errore durante la modifica:', error);
+        }
+    })  
+    
+    btnDelete.addEventListener('click', (event) => {
+        event.preventDefault()
+        const arrayPhonesName = document.querySelectorAll('.phoneName')
+        for (let i = 0; i < arrayPhonesName.length; i++) {
+            if (arrayPhonesName[i].textContent === phoneNameEdit.value) {
+                arrayPhonesName[i].closest('.cardContainer').remove()
+            }
+        }
+        fetchPhone(objectId, {
+            method: 'DELETE',
+            headers: {
+                "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTc0N2Y3MzJjNmEwZDAwMTg0OTVmNjYiLCJpYXQiOjE3MDIxMzM2MTksImV4cCI6MTcwMzM0MzIxOX0.bFdf47Fao8BOHrkkkHyzXutHMc5CSgfH1p2abmSrbGk",
+                "Content-Type": "application/json",
+                },
+        })
+        editPage.classList.remove('show');
+    }) 
+
+    btnResetEditPage.addEventListener('click', (event) => {
+        event.preventDefault()
+        resetPopUpEditPage.classList.add('show')
+    })
+
+    btnResetYesEdit.addEventListener('click', () => {
+        phoneNameEdit.value = ''
+        phoneDescEdit.value = ''
+        phoneBrandEdit.value = ''
+        phoneImgUrlEdit.value = ''
+        phonePriceEdit.value = ''
+        resetPopUpEditPage.classList.remove('show')
+    })
+
+    btnResetNoEdit.addEventListener('click', () => {
+        resetPopUpEditPage.classList.remove('show')
+    })
+}
+
+async function fetchDetails (url, option) {
+    const response = await fetch(url, option)
+    const data = await response.json()
+
+    btnEditDetails.addEventListener('click', () => {
+        phoneNameEdit.value = data.name
+        phoneDescEdit.value = data.description
+        phoneBrandEdit.value = data.brand
+        phoneImgUrlEdit.value = data.imageUrl
+        phonePriceEdit.value = data.price
+        editPage.classList.add('show');
+        newPhonePage.classList.remove('show');
+        detailsPage.classList.remove('show');
+    })
 }
 
 function createCard(phone) {
@@ -199,4 +289,9 @@ function createCard(phone) {
 
 closeIconDetails.addEventListener('click', () => {
     detailsPage.classList.remove('show');
+})
+
+closeIconEdit.addEventListener('click', () => {
+    editPage.classList.remove('show');
+    resetPopUpEditPage.classList.remove('show')
 })

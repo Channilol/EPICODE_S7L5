@@ -15,22 +15,21 @@
     <main>
         <button class="btnNewPhone">New phone</button>
         <div class="cardsContainer">
-<!--        <div class="cardContainer">
-                <img src="assets/img/SamsungGalaxyS21.jpg" alt="nokia">
-                <p class="phoneName">Samsung Galaxy S21</p>
-                <div class="btnsContainer">
-                    <button class="btnDetail">Details</button>
-                    <button class="btnEdit">Edit</button>
-                </div>
-            </div>         -->
+
         </div>
     </main>
+    <!-- Add new phone form page -->
     <div id="newPhonePage">
         <form id="newPhoneForm">
-            <div id="closeIconDiv">
-                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-x-circle-fill closeIcon" viewBox="0 0 16 16">
-                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293z"/>
-                  </svg>
+            <div class="topEditDiv">
+                <div class="pageTitle">
+                    <h1>Add new phone</h1>
+                </div>
+                <div id="closeIconDiv">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-x-circle-fill closeIcon" viewBox="0 0 16 16">
+                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293z"/>
+                    </svg>
+                </div>
             </div>
             <input type="text" id="phoneName" placeholder="Phone name">
             <input type="text" id="phoneDesc" placeholder="Phone description">
@@ -43,6 +42,7 @@
             </div>
         </form>
     </div>
+    <!-- PopUp Reset -->
     <div class="resetConfirmPopUp">
         <p>Are you sure you want to reset all forms?</p>
         <div class="resetConfirmYesNo">
@@ -50,11 +50,17 @@
             <button class="btnResetNo">No</button>
         </div>
     </div>
+    <!-- Phone Details page -->
     <div class="detailsPage">
-        <div id="closeIconDetailsDiv">
-            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-x-circle-fill closeIconDetails" viewBox="0 0 16 16">
-                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293z"/>
-              </svg>
+        <div class="topEditDiv">
+            <div class="pageTitle">
+                <h1>Phone details</h1>
+            </div>
+            <div id="closeIconDetailsDiv">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-x-circle-fill closeIconDetails" viewBox="0 0 16 16">
+                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293z"/>
+                </svg>
+            </div>
         </div>
         <div class="detailsPageImgText">
             <div class="detailsPageImg">
@@ -70,6 +76,39 @@
         </div>
         <div class="btnEditDetailsDiv">
             <button class="btnEditDetails">Edit</button>
+        </div>
+    </div>
+    <!-- Phone Edit page -->
+    <div class="editPage">
+        <form class="editForm">
+            <div class="topEditDiv">
+                <div class="pageTitle">
+                    <h1>Edit Phone</h1>
+                </div>
+                <div class="closeIconEditDiv">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-x-circle-fill closeIconEdit" viewBox="0 0 16 16">
+                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293z"/>
+                    </svg>
+                </div>
+            </div>
+            <input type="text" id="phoneNameEdit" placeholder="Phone name">
+            <input type="text" id="phoneDescEdit" placeholder="Phone description">
+            <input type="text" id="phoneBrandEdit" placeholder="Phone brand">
+            <input type="text" id="phoneImgUrlEdit" placeholder="Phone image url">
+            <input type="number" id="phonePriceEdit" placeholder="Phone price">
+            <div class="btnsEditForm">
+                <button class="btnResetEditPage">Reset</button>
+                <button class="btnDelete">Delete</button>
+                <button class="btnEditPage">Save edits</button>
+            </div>
+        </form>
+    </div>
+    <!-- PopUp Reset Edit Page-->
+    <div class="resetPopUpEditPage">
+        <p>Are you sure you want to reset all forms?</p>
+        <div class="resetYesNoEditPage">
+            <button class="btnResetYesEdit">Yes</button>
+            <button class="btnResetNoEdit">No</button>
         </div>
     </div>
 </body>
